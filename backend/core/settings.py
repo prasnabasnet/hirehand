@@ -42,6 +42,8 @@ INSTALLED_APPS = [
      # Third party
     'graphene_django',
     'corsheaders',
+    # Local apps
+    'apps.users',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +149,5 @@ CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default='http://localhost:
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+AUTH_USER_MODEL = 'users.CustomUser'
