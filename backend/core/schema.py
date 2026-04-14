@@ -1,12 +1,11 @@
 import graphene
 import graphql_jwt
+import apps.users.schemas.custom_user as custom_user
 
-class Query(graphene.ObjectType):
+class Query(custom_user.custom_user_schema.Query,graphene.ObjectType):
     pass
 
-class Mutation(graphene.ObjectType):
-    token_auth = graphql_jwt.ObtainJSONWebToken.Field()
-    verify_token = graphql_jwt.Verify.Field()
-    refresh_token = graphql_jwt.Refresh.Field()
-
+class Mutation(custom_user.custom_user_schema.Mutation,graphene.ObjectType):
+    pass
+    
 schema = graphene.Schema(query=Query, mutation=Mutation)
